@@ -5,9 +5,10 @@
 export const environment = {
   production: false,
   api_endpoint: 'http://localhost:3000/',
+  api_route: 'api/v1/',
   token_auth_config: {
-    apiBase: 'http://localhost:3000'
-  }
+    apiBase: 'http://localhost:3000',
+  },
 };
 
 /*

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,7 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-student.component.scss'],
 })
 export class AddStudentComponent implements OnInit {
-  
   studentId: string = '';
   englishName: string = '';
   urduName: string = '';
@@ -35,46 +34,44 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.addStudent();
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    const body = {
+      student_id: this.studentId,
+      english_name: this.englishName,
+      urdu_name: this.urduName,
+      date_of_birth: this.dateOfBirth,
+      contact_number: this.contactNumber,
+      fathers_english_name: this.fathersEnglishName,
+      fathers_urdu_name: this.fathersUrduName,
+      guardians_id: this.guardiansId,
+      current_address: this.currentAddress,
+      permanent_address: this.permanentAddress,
+      previous_institute: this.previousInstitute,
+      previous_education: this.previousEducation,
+      school_education: this.schoolEducation,
+      admission_type: this.admissionType,
+      admission_date: this.admissionDate,
+      admission_evaluator: this.admissionEvaluator,
+      admission_notes: this.admissionNotes,
+      evaluator_recommendation: this.evaluatorRecommendation,
+    };
+    this.http
+      .post<any>(
+        environment.api_endpoint + environment.api_route + 'students',
+        body
+      )
+      .subscribe({
+        next: (data) => {
+          this.openSnackBar('Student has been created.', 'Close');
+          window.location.reload();
+        },
+        error: (error) => {
+          this.openSnackBar('Error creating student.', 'Close');
+        },
+      });
   }
 
-  addStudent() {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http
-      .post(
-        environment.api_endpoint + 'api/v1/students',
-        {
-          student_id: this.studentId,
-          english_name: this.englishName,
-          urdu_name: this.urduName,
-          date_of_birth: this.dateOfBirth,
-          contact_number: this.contactNumber,
-          fathers_english_name: this.fathersEnglishName,
-          fathers_urdu_name: this.fathersUrduName,
-          guardians_id: this.guardiansId,
-          current_address: this.currentAddress,
-          permanent_address: this.permanentAddress,
-          previous_institute: this.previousInstitute,
-          previous_education: this.previousEducation,
-          school_education: this.schoolEducation,
-          admission_type: this.admissionType,
-          admission_date: this.admissionDate,
-          admission_evaluator: this.admissionEvaluator,
-          admission_notes: this.admissionNotes,
-          evaluator_recommendation: this.evaluatorRecommendation,
-        },
-        { headers }
-      )
-      .subscribe(
-        (val) => {
-          this.openSnackBar('Student has been created.', 'Close');
-        },
-        (response) => {},
-        () => {}
-      );
+  onCancel() {
+    window.location.reload();
   }
 
   openSnackBar(message: string, action: string) {
