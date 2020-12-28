@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "mudrasa"
+  "defaultProject": "mudrasa",
+  "cli": {
+    "analytics": "c7768a28-ee8d-4e26-904b-8a56dc4a95cd"
+  }
 }

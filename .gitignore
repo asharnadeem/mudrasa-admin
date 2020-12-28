@@ -3,4 +3,4 @@
 frontend/node_modules/*
 
 backend/tmp/*
-backend/log/development.log/
+backend/log/*

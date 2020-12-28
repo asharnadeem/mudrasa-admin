@@ -5,8 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Angular2TokenService } from 'angular2-token';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router'
+import { AuthService } from '../app/services/auth.service'
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,13 +29,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentsReportComponent } from './students-report/students-report.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     AddStudentComponent,
-    StudentsReportComponent
+    StudentsReportComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +46,8 @@ import { StudentsReportComponent } from './students-report/students-report.compo
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
+    HttpModule,
+    RouterModule,
     MatCardModule,
     MatSidenavModule,
     MatListModule,
@@ -54,7 +62,14 @@ import { StudentsReportComponent } from './students-report/students-report.compo
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [Angular2TokenService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
