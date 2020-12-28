@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { environment } from "../../environments/environment";
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -45,7 +46,7 @@ export class StudentsReportComponent implements OnInit {
 
   getStudents() {
     this.http
-      .get<any>('http://localhost:3000/api/v1/students')
+      .get<any>(environment.api_endpoint + 'api/v1/students')
       .subscribe((data) => {
         data = this.camelCaseKeys(data)
         this.assignResponse(data)

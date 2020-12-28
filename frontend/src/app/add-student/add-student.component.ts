@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from "../../environments/environment";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -27,7 +28,6 @@ export class AddStudentComponent implements OnInit {
   admissionEvaluator: string = '';
   admissionNotes: string = '';
   evaluatorRecommendation: string = '';
-
   delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
@@ -38,14 +38,14 @@ export class AddStudentComponent implements OnInit {
     this.addStudent();
     setTimeout(() => {
       window.location.reload();
-    }, 1000);
+    }, 500);
   }
 
   addStudent() {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http
       .post(
-        'http://localhost:3000/api/v1/students',
+        environment.api_endpoint + 'api/v1/students',
         {
           student_id: this.studentId,
           english_name: this.englishName,

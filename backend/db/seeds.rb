@@ -28,3 +28,11 @@ Student.create!([
       evaluator_recommendation: "Adult Class"
     },
 ])
+
+User.create(
+  email: 'asharnadeemc@gmail.com', 
+  username: 'asharnadeem', 
+  first_name: 'Ashar', 
+  last_name: 'Nadeem', 
+  password: 'password'
+)
