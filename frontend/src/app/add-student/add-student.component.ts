@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-student.component.scss'],
 })
 export class AddStudentComponent implements OnInit {
+  
   studentId: string = '';
   englishName: string = '';
   urduName: string = '';
