@@ -25,7 +25,6 @@ export class EditStudentDialogComponent implements OnInit {
 
   onSubmit() {
     const body = {
-      student_id: this.student.studentId,
       english_name: this.student.englishName,
       urdu_name: this.student.urduName,
       date_of_birth: this.student.dateOfBirth,
@@ -48,7 +47,7 @@ export class EditStudentDialogComponent implements OnInit {
       .put<any>(
         environment.api_endpoint +
           environment.api_route +
-          'students/:' +
+          'students/' +
           this.student.studentId,
         body
       )

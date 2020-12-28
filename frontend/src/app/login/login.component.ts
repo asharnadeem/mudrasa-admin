@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../services/auth/auth.service'
 
 @Component({
   selector: 'app-login',
@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
   incorrectAttempt: boolean = false;
   delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.incorrectAttempt = false;
   }
 
-  onSubmit(){
+  onSubmit() {
     this.authService.logIn(this.email, this.password)
     setTimeout(() => {
       this.incorrectAttempt = true

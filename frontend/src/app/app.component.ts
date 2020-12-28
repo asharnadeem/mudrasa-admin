@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment'
 import { Angular2TokenService } from 'angular2-token';
-import { AuthService } from '../app/services/auth.service'
+import { AuthService } from '../app/services/auth/auth.service'
 
 @Component({
   selector: 'app-root',

@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { Angular2TokenService } from 'angular2-token';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { AuthService } from '../app/services/auth.service';
+import { AuthService } from '../app/services/auth/auth.service';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';

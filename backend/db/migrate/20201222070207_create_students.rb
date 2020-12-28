@@ -1,7 +1,7 @@
 class CreateStudents < ActiveRecord::Migration[6.1]
   def change
     create_table :students, {:id => false} do |t|
-      t.string :student_id, primary_key: true, null: false
+      t.integer :student_id, primary_key: true, null: false
       t.string :english_name
       t.string :urdu_name
       t.datetime :date_of_birth
@@ -21,6 +21,10 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.string :evaluator_recommendation
 
       t.timestamps
+    end
+
+    reversible do |dir|
+      dir.up { execute "ALTER TABLE students AUTO_INCREMENT = 1000" }
     end
   end
 end

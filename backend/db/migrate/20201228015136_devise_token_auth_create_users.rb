@@ -1,7 +1,7 @@
 class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
   def change
     
-    create_table(:users) do |t|
+    create_table :users, {:id => false} do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
       t.string :uid, :null => false, :default => ""
@@ -36,6 +36,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       ## User Info
+      t.integer :user_id, primary_key: true, null: false
       t.string :first_name
       t.string :last_name
       t.string :username
@@ -48,7 +49,12 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
+    reversible do |dir|
+      dir.up { execute "ALTER TABLE users AUTO_INCREMENT = 1000" }
+    end
+
     add_index :users, :email,                unique: true
+    add_index :users, :username,             unique: true
     add_index :users, [:uid, :provider],     unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
