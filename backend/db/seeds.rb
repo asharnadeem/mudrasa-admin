@@ -8,7 +8,6 @@
 
 Student.create!([
     { 
-      student_id: 'FO50212',
       english_name: "Ashar Nadeem",
       urdu_name: "اشعر ندیم",
       date_of_birth: Date.current,
@@ -27,6 +26,25 @@ Student.create!([
       admission_notes: "Starting daily classes",
       evaluator_recommendation: "Adult Class"
     },
+    { 
+      english_name: "Rayyan Nadeem",
+      urdu_name: "ریان ندیم",
+      date_of_birth: Date.current,
+      contact_number: "4435839557",
+      fathers_english_name: "Muhammad Nadeem",
+      fathers_urdu_name: "محمد ندیم",
+      guardians_id: "987654321",
+      current_address: "8337 Governor Run, Ellicott City MD 21043",
+      permanent_address: "8337 Governor Run, Ellicott City MD 21043",
+      previous_institute: "ISB",
+      previous_education: "Completed Quran",
+      school_education: "High School",
+      admission_type: "Hafiz Program",
+      admission_date: Date.current,
+      admission_evaluator: "Abdullah Azeem",
+      admission_notes: "Full time Hafiz Program",
+      evaluator_recommendation: "Adult Class"
+    }
 ])
 
 User.create(

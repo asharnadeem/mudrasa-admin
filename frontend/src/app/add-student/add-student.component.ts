@@ -9,7 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-student.component.scss'],
 })
 export class AddStudentComponent implements OnInit {
-  studentId: string = '';
   englishName: string = '';
   urduName: string = '';
   dateOfBirth: string = '';
@@ -35,7 +34,6 @@ export class AddStudentComponent implements OnInit {
 
   onSubmit() {
     const body = {
-      student_id: this.studentId,
       english_name: this.englishName,
       urdu_name: this.urduName,
       date_of_birth: this.dateOfBirth,

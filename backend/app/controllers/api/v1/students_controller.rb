@@ -48,6 +48,6 @@ class Api::V1::StudentsController < ApplicationController
     end
     
     def find_student
-        @student = Student.where(student_id: params[:student_id])
+        @student = Student.where(student_id: params[:id])
     end
 end

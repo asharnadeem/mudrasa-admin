@@ -11,6 +11,13 @@ export class AuthService {
     private router: Router
   ) {}
 
+  isLoggedIn() {
+    if (this.angular2TokenService.userSignedIn()) {
+      return true;
+    }
+    return false;
+  }
+
   logIn(email: string, password: string) {
     this.angular2TokenService
       .signIn({
