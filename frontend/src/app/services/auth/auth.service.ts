@@ -9,10 +9,10 @@ export class AuthService {
   constructor(
     public angular2TokenService: Angular2TokenService,
     private router: Router
-  ) { }
+  ) {}
 
   isLoggedIn() {
-    if(this.angular2TokenService.userSignedIn()){
+    if (this.angular2TokenService.userSignedIn()) {
       return true;
     }
     return false;
