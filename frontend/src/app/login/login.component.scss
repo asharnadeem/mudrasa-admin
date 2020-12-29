@@ -1,16 +1,23 @@
 .main-div {
-    height: 100vh;
-    width: 100vw;
-    background-color: #F6F6F6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-card {
-    height: 33vh;
-    width: 30vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 40vh;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+
+.logo {
+  width: 8vw;
+  height: auto;
+  margin: 15px;
 }
