@@ -28,18 +28,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { StudentsReportComponent } from './students-report/students-report.component';
 import { LoginComponent } from './login/login.component';
-import { EditStudentDialogComponent } from './dialogs/edit-student-dialog/edit-student-dialog.component';
+import { StudentsComponent } from './students/students.component';
+import { AddStudentDialogComponent } from './students/dialogs/add-student-dialog/add-student-dialog.component';
+import { EditStudentDialogComponent } from './students/dialogs/edit-student-dialog/edit-student-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    AddStudentComponent,
-    StudentsReportComponent,
     LoginComponent,
+    StudentsComponent,
+    AddStudentDialogComponent,
     EditStudentDialogComponent,
   ],
   imports: [

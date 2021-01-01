@@ -5,14 +5,15 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { EditStudentDialogComponent } from '../dialogs/edit-student-dialog/edit-student-dialog.component';
+import { AddStudentDialogComponent } from './dialogs/add-student-dialog/add-student-dialog.component';
+import { EditStudentDialogComponent } from './dialogs/edit-student-dialog/edit-student-dialog.component';
 
 @Component({
-  selector: 'app-students-report',
-  templateUrl: './students-report.component.html',
-  styleUrls: ['./students-report.component.scss'],
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.scss'],
 })
-export class StudentsReportComponent implements OnInit {
+export class StudentsComponent implements OnInit {
   students: any;
   displayedColumns: string[] = [
     'studentId',
@@ -65,14 +66,26 @@ export class StudentsReportComponent implements OnInit {
     this.students.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(student: any) {
+  addStudentDialog() {
+    this.dialog.open(AddStudentDialogComponent, {
+      width: '40vw',
+      height: '85vh',
+    });
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.getStudents();
+    });
+  }
+
+  editStudentDialog(student: any) {
     this.dialog.open(EditStudentDialogComponent, {
       data: {
         student: student,
       },
       width: '40vw',
       height: '85vh',
-      disableClose: true,
+    });
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.getStudents();
     });
   }
 }

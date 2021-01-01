@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -24,6 +24,11 @@ export class EditStudentDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+    this.editStudent();
+    this.dialogRef.close();
+  }
+
+  editStudent() {
     const body = {
       english_name: this.student.englishName,
       urdu_name: this.student.urduName,
@@ -54,7 +59,6 @@ export class EditStudentDialogComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.openSnackBar('Student has been updated.', 'Close');
-          this.dialogRef.close();
         },
         error: (error) => {
           this.openSnackBar('Error saving student.', 'Close');
@@ -64,7 +68,6 @@ export class EditStudentDialogComponent implements OnInit {
 
   onCancel() {
     this.dialogRef.close();
-    window.location.reload();
   }
 
   openSnackBar(message: string, action: string) {

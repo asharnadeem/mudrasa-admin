@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { Component, Inject, OnInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.scss'],
+  selector: 'app-add-student-dialog',
+  templateUrl: './add-student-dialog.component.html',
+  styleUrls: ['./add-student-dialog.component.scss'],
 })
-export class AddStudentComponent implements OnInit {
+export class AddStudentDialogComponent implements OnInit {
   englishName: string = '';
   urduName: string = '';
   dateOfBirth: string = '';
@@ -28,11 +29,21 @@ export class AddStudentComponent implements OnInit {
   evaluatorRecommendation: string = '';
   delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
+  constructor(
+    private dialogRef: MatDialogRef<AddStudentDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any,
+    private http: HttpClient,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
+    this.addStudent();
+    this.dialogRef.close();
+  }
+
+  addStudent() {
     const body = {
       english_name: this.englishName,
       urdu_name: this.urduName,
@@ -60,7 +71,6 @@ export class AddStudentComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.openSnackBar('Student has been created.', 'Close');
-          window.location.reload();
         },
         error: (error) => {
           this.openSnackBar('Error creating student.', 'Close');
@@ -69,7 +79,7 @@ export class AddStudentComponent implements OnInit {
   }
 
   onCancel() {
-    window.location.reload();
+    this.dialogRef.close();
   }
 
   openSnackBar(message: string, action: string) {
