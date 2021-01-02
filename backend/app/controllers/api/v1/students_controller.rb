@@ -8,7 +8,7 @@ class Api::V1::StudentsController < ApplicationController
         render json: @students
     end
 
-    # GET /student/:id
+    # GET /students/:id
     def show
         render json: @student
     end
