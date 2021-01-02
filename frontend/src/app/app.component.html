@@ -16,13 +16,9 @@
           <a mat-list-item routerLink="/homepage">
             <mat-icon>home</mat-icon><span style="margin-left: 5px">Home</span>
           </a>
-          <a mat-list-item routerLink="/add-student">
-            <mat-icon>person_add</mat-icon
-            ><span style="margin-left: 5px">Add Student</span>
-          </a>
-          <a mat-list-item routerLink="/students-report">
-            <mat-icon>people_alt</mat-icon
-            ><span style="margin-left: 5px">View Students</span>
+          <a mat-list-item routerLink="/students">
+            <mat-icon>school</mat-icon
+            ><span style="margin-left: 5px">Students</span>
           </a>
         </div>
         <a mat-list-item (click)="authService.logOut()" style="bottom: 1vh">
@@ -36,6 +32,7 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
 <div *ngIf="!authService.isLoggedIn()">
   <app-login></app-login>
 </div>

@@ -7,10 +7,14 @@
   align-items: center;
 }
 
-.report-table {
-  height: 75vh;
+.report-backdrop {
+  height: 90vh;
   width: 70vw;
-  overflow-x: scroll;
+  overflow: scroll;
+}
+
+.report-table {
+  overflow: scroll;
   white-space: nowrap;
 }
 
