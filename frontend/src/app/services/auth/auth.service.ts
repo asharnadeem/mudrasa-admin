@@ -25,15 +25,17 @@ export class AuthService {
         password: password,
       })
       .subscribe(
-        (res: any) => this.router.navigate(['/homepage']),
-        (error: any) => console.log(error)
+        (res: any) => this.router.navigate(['/homepage'])
+        // (error: any) => console.log(error)
       );
   }
 
   logOut() {
-    this.angular2TokenService.signOut().subscribe(
-      (res: any) => console.log(res),
-      (error: any) => console.log(error)
-    );
+    this.angular2TokenService
+      .signOut()
+      .subscribe
+      // (res: any) => console.log(res),
+      // (error: any) => console.log(error)
+      ();
   }
 }

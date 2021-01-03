@@ -27,7 +27,6 @@ export class AddStudentDialogComponent implements OnInit {
   admissionEvaluator: string = '';
   admissionNotes: string = '';
   evaluatorRecommendation: string = '';
-  delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
   constructor(
     private dialogRef: MatDialogRef<AddStudentDialogComponent>,
@@ -63,19 +62,14 @@ export class AddStudentDialogComponent implements OnInit {
       admission_notes: this.admissionNotes,
       evaluator_recommendation: this.evaluatorRecommendation,
     };
-    this.http
-      .post<any>(
-        environment.api_endpoint + environment.api_route + 'students',
-        body
-      )
-      .subscribe({
-        next: (data) => {
-          this.openSnackBar('Student has been created.', 'Close');
-        },
-        error: (error) => {
-          this.openSnackBar('Error creating student.', 'Close');
-        },
-      });
+    this.http.post<any>(environment.apiEndpoint + 'students/', body).subscribe({
+      next: (data) => {
+        this.openSnackBar('Student has been created.', 'Close');
+      },
+      error: (error) => {
+        this.openSnackBar('Error creating student.', 'Close');
+      },
+    });
   }
 
   onCancel() {

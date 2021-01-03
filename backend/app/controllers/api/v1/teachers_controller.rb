@@ -36,7 +36,7 @@ class Api::V1::TeachersController < ApplicationController
     # DELETE /teachers/:id
     def destroy
         if @teacher
-            @teacher.destroy
+            @teacher.first.destroy
             render json: { message: 'Teacher successfully deleted.' }, status: 200
         else
             render error: { error: 'Error occured while deleting teacher. Teacher has NOT been deleted.' }, status: 400

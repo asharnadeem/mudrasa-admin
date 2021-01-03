@@ -1,131 +1,155 @@
 <div *ngIf="student" style="margin: 10px">
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Student's English Name</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.englishName" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Student's Urdu Name</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.urduName" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field>
-      <mat-label>Date of Birth</mat-label>
-      <input
-        matInput
-        [(ngModel)]="student.dateOfBirth"
-        [matDatepicker]="picker"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker
-        #picker
-        color="primary"
-        [startAt]="student.dateOfBirth"
-      ></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Contact Number</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.contactNumber" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Current Address</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.currentAddress" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Permanent Address</mat-label>
-      <input matInput [(ngModel)]="student.permanentAddress" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Father's English Name</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.fathersEnglishName" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Father's Urdu Name</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.fathersUrduName" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Guardians ID</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.guardiansId" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Previous Institute</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.previousInstitute" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Previous Education</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.previousEducation" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>School Education</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.schoolEducation" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field>
-      <mat-label>Admission Date</mat-label>
-      <input
-        matInput
-        [(ngModel)]="student.admissionDate"
-        [matDatepicker]="picker2"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2 color="primary"></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Admission Type</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.admissionType" />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy">
-      <mat-label>Evaluator Name</mat-label>
-      <input matInput placeholder="" [(ngModel)]="student.admissionEvaluator" />
-    </mat-form-field>
-    <mat-form-field appearance="legacy">
-      <mat-label>Evaluator Recommendation</mat-label>
-      <input
-        matInput
-        placeholder=""
-        [(ngModel)]="student.evaluatorRecommendation"
-      />
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" style="overflow: scroll">
-    <mat-form-field appearance="legacy" style="width: 100%">
-      <mat-label>Admission Notes</mat-label>
-      <textarea
-        matInput
-        placeholder=""
-        [(ngModel)]="student.admissionNotes"
-        style="height: 75px"
-      ></textarea>
-    </mat-form-field>
+  <div style="overflow: scroll">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Student's English Name</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.englishName" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Student's Urdu Name</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.urduName" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.dateOfBirth"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          color="primary"
+          [startAt]="student.dateOfBirth"
+        ></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Contact Number</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.contactNumber" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Current Address</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.currentAddress" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Permanent Address</mat-label>
+        <input matInput [(ngModel)]="student.permanentAddress" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Father's English Name</mat-label>
+        <input
+          matInput
+          placeholder=""
+          [(ngModel)]="student.fathersEnglishName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Father's Urdu Name</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.fathersUrduName" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Guardians ID</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.guardiansId" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Previous Institute</mat-label>
+        <input
+          matInput
+          placeholder=""
+          [(ngModel)]="student.previousInstitute"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Previous Education</mat-label>
+        <input
+          matInput
+          placeholder=""
+          [(ngModel)]="student.previousEducation"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>School Education</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.schoolEducation" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field>
+        <mat-label>Admission Date</mat-label>
+        <input
+          matInput
+          [(ngModel)]="student.admissionDate"
+          [matDatepicker]="picker2"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Admission Type</mat-label>
+        <input matInput placeholder="" [(ngModel)]="student.admissionType" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Evaluator Name</mat-label>
+        <input
+          matInput
+          placeholder=""
+          [(ngModel)]="student.admissionEvaluator"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Evaluator Recommendation</mat-label>
+        <input
+          matInput
+          placeholder=""
+          [(ngModel)]="student.evaluatorRecommendation"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Admission Notes</mat-label>
+        <textarea
+          matInput
+          placeholder=""
+          [(ngModel)]="student.admissionNotes"
+          style="height: 75px"
+        ></textarea>
+      </mat-form-field>
+    </div>
   </div>
   <div fxLayoutAlign="end end">
     <button
       mat-raised-button
       color="primary"
-      (click)="onSubmit()"
+      (click)="editStudent()"
       style="margin: 5px"
     >
       Submit
     </button>
+    <button mat-raised-button (click)="onCancel()" style="margin: 5px">
+      Cancel
+    </button>
     <button
       mat-raised-button
       color="warn"
-      (click)="onCancel()"
+      (click)="deleteStudent()"
       style="margin: 5px"
     >
-      Cancel
+      Delete
     </button>
   </div>
 </div>
