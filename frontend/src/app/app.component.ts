@@ -15,6 +15,9 @@ export class AppComponent {
     public angular2TokenService: Angular2TokenService,
     public authService: AuthService
   ) {
-    this.angular2TokenService.init(environment.tokenAuthConfig);
+    this.angular2TokenService.init({
+      apiBase: environment.tokenAuthConfig.apiBase,
+      signOutFailedValidate: true,
+    });
   }
 }
