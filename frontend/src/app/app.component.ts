@@ -15,6 +15,6 @@ export class AppComponent {
     public angular2TokenService: Angular2TokenService,
     public authService: AuthService
   ) {
-    this.angular2TokenService.init(environment.token_auth_config);
+    this.angular2TokenService.init(environment.tokenAuthConfig);
   }
 }

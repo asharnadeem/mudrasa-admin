@@ -8,7 +8,7 @@ class Api::V1::StudentsController < ApplicationController
         render json: @students
     end
 
-    # GET /student/:id
+    # GET /students/:id
     def show
         render json: @student
     end
@@ -36,7 +36,7 @@ class Api::V1::StudentsController < ApplicationController
     # DELETE /students/:id
     def destroy
         if @student
-            @student.destroy
+            @student.first.destroy
             render json: { message: 'Student successfully deleted.' }, status: 200
         else
             render error: { error: 'Error occured while deleting student. Student has NOT been deleted.' }, status: 400

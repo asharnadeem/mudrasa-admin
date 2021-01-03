@@ -48,7 +48,7 @@ export class StudentsComponent implements OnInit {
 
   getStudents() {
     this.http
-      .get<any>(environment.api_endpoint + 'api/v1/students')
+      .get<any>(environment.apiEndpoint + 'students/')
       .subscribe((data) => {
         data = this.camelCaseKeys(data);
         this.assignResponse(data);
@@ -69,7 +69,7 @@ export class StudentsComponent implements OnInit {
   addStudentDialog() {
     this.dialog.open(AddStudentDialogComponent, {
       width: '40vw',
-      height: '85vh',
+      height: '87vh',
     });
     this.dialog.afterAllClosed.subscribe(() => {
       this.getStudents();
@@ -82,7 +82,7 @@ export class StudentsComponent implements OnInit {
         student: student,
       },
       width: '40vw',
-      height: '85vh',
+      height: '87vh',
     });
     this.dialog.afterAllClosed.subscribe(() => {
       this.getStudents();

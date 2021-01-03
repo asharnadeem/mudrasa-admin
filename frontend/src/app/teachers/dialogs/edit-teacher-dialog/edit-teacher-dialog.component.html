@@ -1,0 +1,90 @@
+<div *ngIf="teacher" style="margin: 10px">
+  <div style="overflow: scroll">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <mat-form-field appearance="legacy">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="" [(ngModel)]="teacher.name" />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Government ID</mat-label>
+        <input matInput placeholder="" [(ngModel)]="teacher.governmentId" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="" [(ngModel)]="teacher.phoneNumber" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-label>Start Date</mat-label>
+        <input
+          matInput
+          [(ngModel)]="teacher.startDate"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          color="primary"
+          [startAt]="teacher.startDate"
+        ></mat-datepicker>
+      </mat-form-field>
+      <button
+        mat-button
+        (click)="clearStartDate()"
+        style="transform: scale(0.75)"
+      >
+        Clear
+      </button>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-label>End Date</mat-label>
+        <input
+          matInput
+          [(ngModel)]="teacher.endDate"
+          [matDatepicker]="picker2"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker2
+          color="primary"
+          [startAt]="teacher.endDate"
+        ></mat-datepicker>
+      </mat-form-field>
+      <button
+        mat-button
+        (click)="clearEndDate()"
+        style="transform: scale(0.75)"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+  <div fxLayoutAlign="end end">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="editTeacher()"
+      style="margin: 5px"
+    >
+      Submit
+    </button>
+    <button mat-raised-button (click)="onCancel()" style="margin: 5px">
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="deleteTeacher()"
+      style="margin: 5px"
+    >
+      Delete
+    </button>
+  </div>
+</div>

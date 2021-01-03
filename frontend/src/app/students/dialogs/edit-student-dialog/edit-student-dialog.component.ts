@@ -23,11 +23,6 @@ export class EditStudentDialogComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    this.editStudent();
-    this.dialogRef.close();
-  }
-
   editStudent() {
     const body = {
       english_name: this.student.englishName,
@@ -50,15 +45,13 @@ export class EditStudentDialogComponent implements OnInit {
     };
     this.http
       .put<any>(
-        environment.api_endpoint +
-          environment.api_route +
-          'students/' +
-          this.student.studentId,
+        environment.apiEndpoint + 'students/' + this.student.studentId,
         body
       )
       .subscribe({
         next: (data) => {
           this.openSnackBar('Student has been updated.', 'Close');
+          this.dialogRef.close();
         },
         error: (error) => {
           this.openSnackBar('Error saving student.', 'Close');
@@ -68,6 +61,20 @@ export class EditStudentDialogComponent implements OnInit {
 
   onCancel() {
     this.dialogRef.close();
+  }
+
+  deleteStudent() {
+    this.http
+      .delete(environment.apiEndpoint + 'students/' + this.student.studentId)
+      .subscribe({
+        next: (data) => {
+          this.openSnackBar('Student has been deleted.', 'Close');
+          this.dialogRef.close();
+        },
+        error: (error) => {
+          this.openSnackBar('Error deleting student.', 'Close');
+        },
+      });
   }
 
   openSnackBar(message: string, action: string) {

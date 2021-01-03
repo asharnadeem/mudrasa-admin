@@ -6,17 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create!(
+  email: 'asharnadeemc@gmail.com', 
+  username: 'asharnadeem', 
+  first_name: 'Ashar', 
+  last_name: 'Nadeem', 
+  password: 'password'
+)
+
 Student.create!([
     { 
       english_name: "Ashar Nadeem",
       urdu_name: "اشعر ندیم",
       date_of_birth: Date.current,
-      contact_number: "4435839571",
+      contact_number: "8005258967",
       fathers_english_name: "Muhammad Nadeem",
       fathers_urdu_name: "محمد ندیم",
       guardians_id: "123456789",
-      current_address: "8337 Governor Run, Ellicott City MD 21043",
-      permanent_address: "8337 Governor Run, Ellicott City MD 21043",
+      current_address: "123 Drive, New York, NY",
+      permanent_address: "123 Drive, New York, NY",
       previous_institute: "Masjid Fatima",
       previous_education: "Completed Quran",
       school_education: "University",
@@ -30,12 +38,12 @@ Student.create!([
       english_name: "Rayyan Nadeem",
       urdu_name: "ریان ندیم",
       date_of_birth: Date.current,
-      contact_number: "4435839557",
+      contact_number: "8005258967",
       fathers_english_name: "Muhammad Nadeem",
       fathers_urdu_name: "محمد ندیم",
       guardians_id: "987654321",
-      current_address: "8337 Governor Run, Ellicott City MD 21043",
-      permanent_address: "8337 Governor Run, Ellicott City MD 21043",
+      current_address: "123 Drive, New York, NY",
+      permanent_address: "123 Drive, New York, NY",
       previous_institute: "ISB",
       previous_education: "Completed Quran",
       school_education: "High School",
@@ -47,10 +55,12 @@ Student.create!([
     }
 ])
 
-User.create(
-  email: 'asharnadeemc@gmail.com', 
-  username: 'asharnadeem', 
-  first_name: 'Ashar', 
-  last_name: 'Nadeem', 
-  password: 'password'
-)
+Teacher.create!([
+  { 
+    name: "Basil Nadeem",
+    government_id: "123456789",
+    phone_number: "8005258967",
+    start_date: Date.current,
+    end_date: Date.current
+  }
+])
